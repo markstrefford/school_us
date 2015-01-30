@@ -14,3 +14,4 @@ client/app/.buildignore
 client/app/.htaccess
 public
 node_modules
+.idea
