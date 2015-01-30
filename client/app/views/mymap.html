@@ -1,0 +1,136 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <leaflet testing="testing"
+                     center="center"
+                     markers="markers"
+                     height="640px"
+                     border="10px">
+            </leaflet>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="alert alert-info">
+                    <strong>{{tipTitle}}</strong>
+
+                    <p>{{tipText}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- side bar templates -->
+                <div id="sideBar-content" ng-include src="mapSideBarTemplate"></div>
+                <!-- side bar for user selecting their school -->
+                <script type="text/ng-template" id="/selectSchoolTemplate.html">
+                    <div class="schoollist panel panel-default">
+                        <div class="panel-heading"><h4>Available Schools</h4></div>
+                        <table class="table table-hover">
+                            <tr ng-repeat="schl in schools">
+                                <td>
+                                    <h5>
+                                        {{schl.name}}
+                                    </h5>
+
+                                    <div class="text-right">
+                                        <button type="button" id="selectSchoolButton" class="btn btn-xs btn-primary"
+                                                ng-click="schoolSelectButton(schl._id)">Select
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </script>
+                <!-- Sidebar template for when a user is selecting where they live -->
+                <script type="text/ng-template" id="/selectHomeTemplate.html">
+                    <p>&nbsp;</p>     <!-- Does nothing yet! -->
+                </script>
+                <!-- Sidebar template for when a user is viewing proposals -->
+                <script type="text/ng-template" id="/selectProposalTemplate.html">
+                    <div class="proposallist panel panel-default" >
+                        <div class="panel-heading"><h4>Available Bus Services</h4></div>
+                        <table class="table table-hover">
+                            <tr ng-repeat="proposal in proposals">
+                                <td>
+                                    <h5>{{proposal.buscompany}}</h5>
+
+                                    <p>Seats available: {{proposal.freeseats}}<br/>
+                                        Price per term: £{{proposal.priceday}}</p>
+                                    <a href="" ng-click="proposal.more = !proposal.more">{{proposal.expandText}}</a>
+
+                                    <div collapse="!proposal.more">
+                                        <p>{{proposal.company.description}}</p>
+
+                                        <p>{{proposal.times}}</p>
+
+                                        <div class="text-right">
+                                            <button type="button" id="selectProposalButton"
+                                                    class="btn btn-xs btn-primary"
+                                                    ng-click="selectProposalButton(proposal._id)">Select
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </script>
+                <!-- Sidebar template for when a user is registering -->
+                <script type="text/ng-template" id="/registerTemplate.html">
+                    <div class="proposallist panel panel-default">
+                        <div class="panel-heading"><h4>Register your details</h4></div>
+
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11"></div>
+        <div class="col-md-1">
+
+            <!-- Buttons for various parts of the map process  -->
+            <div id="button-content" ng-include src="buttonTemplate">
+                <!-- Next button for once a user has selected their school -->
+                <script type="text/ng-template" id="/schoolNextButton.html">
+                    <div class="next_button">
+                        <button type="button" id="schoolSubmit" class="btn btn-lg btn-primary"
+                                ng-disabled="!nextButtonClickable"
+                                ng-click="schoolSelected(selectedSchool)">Next
+                        </button>
+                    </div>
+                </script>
+                <!-- Next button for once user has selected home page -->
+                <script type="text/ng-template" id="/homeNextButton.html">
+                    <div class="next_button">
+                        <button type="button" id="homeSubmit" class="btn btn-lg btn-primary"
+                                ng-disabled="!nextButtonClickable"
+                                ng-click="saveHomeLocation()">Next
+                        </button>
+                    </div>
+                </script>
+                <!-- Next button for proposal selection -->
+                <script type="text/ng-template" id="/proposalNextButton.html">
+                    <div class="next_button">
+                        <button type="button" id="proposalSubmit" class="btn btn-lg btn-primary"
+                                ng-disabled="!nextButtonClickable"
+                                ng-click="selectProposal()">Next
+                        </button>
+                    </div>
+                </script>
+                <!-- Next button for register for bus -->
+                <script type="text/ng-template" id="/registerNextButton.html">
+                    <div class="next_button">
+                        <button type="button" id="registerSubmit" class="btn btn-lg btn-primary"
+                                ng-disabled="!nextButtonClickable"
+                                ng-click="registerProposal()">Next
+                        </button>
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

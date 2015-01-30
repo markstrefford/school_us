@@ -1,0 +1,67 @@
+<div class="container">
+
+    <div class="row">
+        <div class="span6">
+            <div class="panel panel-info ">
+                <div class="panel-heading">
+                    <h3>Confirm and select payment method</h3>
+                </div>
+                <div class="panel-content">
+                    <p>You have selected the following proposal: </p>
+
+                    <p>From: {{user.town}}, {{user.postcode}}</p>
+                    <p>To: {{school.name}}, {{school.town}}</p>
+                    <p>Bus Company: {{proposal.buscompany}}</p>
+                    <p>Bus size: {{proposal.bussize}} seats</p>
+                    <p>Price / month: {{proposal.priceday}}</p>
+
+                    <p>By confirming this proposal, you agree to our terms and conditions and those of {{proposal.buscompany}}.
+                        We will only charge you once this bus has been agreed by the majority of parents opting for this route.</p>
+
+                    <button class="btn btn-small btn-info" ng-click="cancelProposal()">Cancel</button>
+                    <button class="btn btn-small btn-info" ng-click="confirmProposal()">Confirm</button>
+
+                </div>
+                <!-- panel content -->
+            </div>
+            <!-- panel -->
+        </div>
+        <!-- span6 -->
+
+        <div class="span6">
+            <div class="panel panel-info ">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-content" ng-switch on="displayPayment">
+                    <div ng-switch-when="1">
+                        <form name="paymentForm">
+                            <label for="name">Cardholder Name:</label>
+                            <input type="text" id="name" ng-model="user.name"/>
+                            <label for="address">Address:</label>
+                            <input type="text" id="address" ng-model="user.address"/>
+                            <label for="town">Town:</label>
+                            <input type="text" id="town" ng-model="user.town"/>
+                            <label for="postcode">Postcode:</label>
+                            <input type="text" id="postcode" ng-model="user.postcode"/>
+                            <label for="cardnumber">Card Number:</label>
+                            <input type="text" id="cardnumber" ng-model="user.cardnumber"/>
+                            <label for="cardexpiry">Card Expiry:</label>
+                            <input type="text" id="cardexpiry" ng-model="user.cardexpiry"/>
+                            <label for="cardccv">Card CCV:</label>
+                            <input type="text" id="cardccv" ng-model="user.cardccv"/>
+                            <p></p>
+                            <button class="btn btn-small btn-info" ng-click="makePayment(user, proposal)">Confirm Payment Method</button>
+                        </form>
+                    </div>
+                    <div ng-switch-default>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+

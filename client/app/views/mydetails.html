@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="row">
+        <div class="span8">
+            <leaflet testing="testing"
+                     center="center"
+                     markers="markers"
+                     width="600px" height="400px" border="10px">
+            </leaflet>
+        </div>
+        <div class="span4">
+            <p class="lead"><br/>Your Home</p>
+
+            <form name="mydetailsForm">
+                <label for="town">Town:</label>
+                <input type="text" id="town" ng-model="user.town"/>
+                <label for="postcode">Postcode:</label>
+                <input type="text" id="postcode" ng-model="user.postcode"/>
+
+                <p class="lead">Your School</p>
+
+                <div class="input-append">
+                    <input class="input-large uneditable-input" id="appendedInputButton" type="text"
+                           ng-model="school.name">
+                    <button class="btn" type="button">Change</button>
+                </div>
+                <p>&nbsp;</p>
+                <button class="btn btn-primary" ng-click="findBuses(user, school)">Check Bus Availability</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,16 @@
+
+client/.jshintrc
+
+client/.gitattributes
+
+client/.bowerrc
+
+client/.editorconfig
+
+*.yml
+
+client/app/.buildignore
+
+client/app/.htaccess
+public
+node_modules

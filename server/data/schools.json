@@ -1,0 +1,4 @@
+{ "_id" : { "$oid" : "51ee9b058c007487d6178585" }, "name" : "Flint High School", "address" : "Northop Road, Flint", "loc" : { "type" : "Point", "coordinates" : [ -3.14, 53.25] } }
+{ "_id" : { "$oid" : "51f784611ada67ba0a14cb00" }, "name" : "Holmes Chapel Comprehensive School", "address" : "Holmeschapel, Cheshire", "loc" : { "type" : "Point", "coordinates" : [ -2.36835960, 53.19773940 ] } }
+{ "_id" : { "$oid" : "51f784ce1ada67ba0a14cb01" }, "name" : "Knutsford High School", "address" : "Knutsford, Cheshire", "loc" : { "type" : "Point", "coordinates" : [ -2.39, 53.30 ] } }
+{ "_id" : { "$oid" : "520246578daf6c7fd776a4cc" }, "name" : "Middlewich High School", "address" : "Middlewich, Cheshire", "loc" : { "type" : "Point", "coordinates" : [ -2.443833, 53.192565 ] } }

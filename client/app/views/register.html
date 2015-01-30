@@ -1,0 +1,126 @@
+<div class="container">
+    <div class="row">
+        <!--<div class="col-md-8">
+            <div id="map-content" ng-include src="'views/map.html'"></div>
+        </div>-->
+
+        <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+                <h3>Login or Register</h3>
+
+                <div id="page-tip" ng-include src="'views/pagetip.html'"></div>
+
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="row  col-sm-12 col-sm-offset1">
+                    <div class="alert alert-success">
+                        <p><strong>Existing Users Please Login</strong></p>
+                    </div>
+                    <div collapse="!loginError.error">
+                            <div class="alert alert-danger">
+                                <p>{{loginError.message}}</p>
+                            </div>
+                    </div>
+                    <form name="loginForm" class="form-inline"
+                          novalidate>
+                        <div ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
+                            <input type="email" ng-model="credentials.email" name="email"
+                                   class="form-control voffset1"
+                                   placeholder="Email address" ng-model="credentials.email" required>
+                        </div>
+                        <div ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
+                            <input type="password" ng-model="credentials.password" name="password"
+                                   class="form-control voffset1"
+                                   placeholder="Password" ng-model="credentials.password" required>
+                        </div>
+                        <div class="next_button voffset3 col-md-12 text-right">
+                            <button type="button" name="schoolSubmit" class="btn btn-small btn-primary"
+                                    ng-disabled="loginForm.$invalid"
+                                    ng-click="login(credentials)">Login and Make Payment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="row col-sm-12 col-sm-offset1">
+                    <div class="alert alert-success">
+                        <p><strong ng-click="register = true">New Users Please Create An Account</strong></p>
+                    </div>
+                    <div collapse="!registerError.error">
+                        <div class="alert alert-danger">
+                            <p>{{registerError.message}}</p>
+                        </div>
+                    </div>
+                    <form name="registerForm" class="form-inline"
+                          novalidate>
+                        <!-- <div class="form-group voffset1 col-md-12">  -->
+
+
+                        <h5>Parent's Details</h5>
+                        <div ng-class="{ 'has-error' : registerForm.name.$invalid && !registerForm.name.$pristine}">
+                            <input type="text" name="name" class="form-control voffset1"
+                                   placeholder="Parent's name" ng-model="newUser.name" ng-minlength="6" required>
+                        </div>
+                        <div ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
+                            <input type="email" ng-model="newUser.email" name="email"
+                                   class="form-control voffset1"
+                                   placeholder="Email address" ng-model="newUser.email" required>
+                        </div>
+                        <div ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
+                            <input type="password" ng-model="newUser.password" name="password"
+                                   class="form-control voffset1"
+                                   placeholder="Password" ng-model="newUser.password" required>
+                        </div>
+
+
+                        <h5>Address</h5>
+
+                        <div ng-class="{ 'has-error' : registerForm.address1.$invalid && !registerForm.address1.$pristine}">
+
+                            <input type="text" name="address1" class="form-control voffset1"
+
+                                   ng-model="newUser.address" placeholder="Street address" required>
+                        </div>
+                        <div ng-class="{ 'has-error' : registerForm.address2.$invalid && !registerForm.address2.$pristine}">
+                            <input type="text" ng-model="newUser.city" name="address2" class="form-control voffset1"
+                                   placeholder="City or Town" required>
+                        </div>
+                        <div ng-class="{ 'has-error' : registerForm.city.$invalid && !registerForm.city.$pristine || $scope.postCodeInvalid}">
+                            <input type="text" ng-model="newUser.postcode" name="city" class="form-control voffset1"
+                                   placeholder="Postcode"
+                                   required>
+                        </div>
+                        <div ng-class="{ 'has-error' : registerForm.phone.$invalid && !registerForm.phone.$pristine}">
+                            <input type="tel" ng-model="newUser.phone" name="phone" class="form-control voffset1"
+                                   placeholder="Contact Number" ng-model="newUser.phone" required>
+                        </div>
+                        <!-- </div>  -->
+                        <!-- <div class="form-group voffset1 col-md-12">  -->
+                        <h5>Child's Details</h5>
+
+                        <div ng-class="{ 'has-error' : registerForm.childname.$invalid && !registerForm.childname.$pristine}">
+                            <input type="text" ng-model="newUser.childname" name="childname" class="form-control voffset1"
+                                   placeholder="Child's name"
+                                   required>
+                        </div>
+                        <!-- </div> -->
+                        <div class="next_button voffset3 col-md-12 text-right">
+                            <button type="button" name="schoolSubmit" class="btn btn-small btn-primary"
+                                    ng-disabled="registerForm.$invalid"
+                                    ng-click="register(newUser)">Register and Make Payment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
